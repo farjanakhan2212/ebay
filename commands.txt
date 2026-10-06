@@ -40,8 +40,8 @@ https://github.com/farjanakhan2212/ebay.git
 
 Step10: Optional-add README.md 
 
-https://github.com/farjanakhan2212/ebay.git
-https://github.com/farjanakhan2212/ebay.git
+git add README.md 
+git commit -m "Add README"
 git push
 
 
