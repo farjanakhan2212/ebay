@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="eBay marketplace demo — browse electronics, fashion, collectibles, holiday decor, sneakers, trading cards and more.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Electronics, Cars, Fashion, Collectibles &amp; More | eBay</title>
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230654ba'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' text-anchor='middle' fill='%23fff'%3Ee%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+    <!-- ============================================================
+         30. LOADING EXPERIENCE
+         ============================================================ -->
+    <div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading eBay marketplace">
+        <div class="boot__inner">
+            <img class="boot__logo" src="img/ebay_logo.png" alt="eBay" width="132" height="53">
+            <span class="boot__bar" aria-hidden="true"></span>
+        </div>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <h1 class="sr-only">eBay — shop electronics, fashion, collectibles, holiday decor and more</h1>
+
+    <!-- ============================================================
+         6 / 7 / 9. HEADER  — utility bar + main row + category nav
+         ============================================================ -->
+    <header class="site-header" id="siteHeader">
+
+        <!-- ---- Top utility bar ---- -->
+        <div class="utility" id="utilityBar">
+            <div class="shell utility__inner">
+                <nav class="utility__group" aria-label="Account and promotions">
+                    <span class="utility__hi">Hi!</span>
+                    <a class="utility__link utility__link--accent"
+                        href="https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&amp;sgfl=gh&amp;ru=https%3A%2F%2Fwww.ebay.com%2F">Sign in
+                        or register</a>
+                    <button class="utility__link utility__btn u-hide-md" type="button" data-demo="Daily Deals">Daily Deals</button>
+                    <button class="utility__link utility__btn u-hide-md" type="button" data-demo="Brand Outlet">Brand
+                        Outlet</button>
+                    <button class="utility__link utility__btn u-hide-md" type="button" data-demo="Gift Cards">Gift
+                        Cards</button>
+                    <a class="utility__link u-hide-md" href="#footer-help" data-scroll>Help &amp; Contact</a>
+                </nav>
+
+                <nav class="utility__group utility__group--end" aria-label="Account tools">
+                    <button class="utility__link utility__btn u-hide-md" type="button" data-demo="Sell">Sell</button>
+
+                    <button class="utility__link utility__btn" type="button" data-open="watchlist">
+                        <span>Watchlist</span>
+                        <span class="pill" data-count="watchlist" hidden>0</span>
+                    </button>
+
+                    <div class="dropdown u-hide-md" data-dropdown>
+                        <button class="utility__link utility__btn" type="button" aria-expanded="false"
+                            aria-haspopup="true" data-dropdown-trigger>
+                            <span>My eBay</span>
+                            <i class="fa-solid fa-chevron-down dropdown__caret" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown__menu" role="menu">
+                            <li role="none"><a role="menuitem" href="#trending" data-scroll>Summary</a></li>
+                            <li role="none"><a role="menuitem" href="#trending" data-scroll>Recently Viewed</a></li>
+                            <li role="none"><a role="menuitem" href="#gift-hunt" data-scroll>Bids/Offers</a></li>
+                            <li role="none"><button role="menuitem" type="button" data-open="watchlist">Watchlist</button></li>
+                            <li role="none"><a role="menuitem" href="#gift-hunt" data-scroll>Purchase History</a></li>
+                            <li role="none"><a role="menuitem" href="#gift-hunt" data-scroll>Buy Again</a></li>
+                            <li role="none"><a role="menuitem" href="#footer-sell" data-scroll>Selling</a></li>
+                            <li role="none"><a role="menuitem" href="#categories" data-scroll>Saved Feed</a></li>
+                        </ul>
+                    </div>
+
+                    <button class="icon-btn icon-btn--sm" type="button" data-notify="notifications" aria-label="Notifications">
+                        <img src="img/bell.png" alt="" width="20" height="20">
+                    </button>
+
+                    <button class="icon-btn icon-btn--sm u-hide-sm" type="button" data-open="cart" aria-label="Open cart">
+                        <img src="img/shopping.png" alt="" width="20" height="20">
+                        <span class="pill" data-count="cart" hidden>0</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ---- Main header row ---- -->
+        <div class="topbar">
+            <div class="shell topbar__inner">
+
+                <button class="icon-btn topbar__burger" type="button" aria-expanded="false" aria-controls="mobileNav"
+                    data-menu-toggle>
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    <span class="sr-only">Open menu</span>
+                </button>
+
+                <a class="brand" href="#top" aria-label="eBay home">
+                    <img src="img/ebay_logo.png" alt="eBay" width="128" height="51">
+                </a>
+
+                <!-- ---- 8. Search bar ---- -->
+                <form class="search" id="searchForm" role="search" autocomplete="off">
+                    <label class="sr-only" for="searchCat">Search category</label>
+                    <div class="search__catwrap">
+                        <select class="search__cat" id="searchCat" name="category">
+                            <option value="">All Categories</option>
+                            <option value="Antiques">Antiques</option>
+                            <option value="Business &amp; Industrial">Business &amp; Industrial</option>
+                            <option value="Cameras &amp; Photo">Cameras &amp; Photo</option>
+                            <option value="Health &amp; Beauty">Health &amp; Beauty</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down search__caret" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="search__icon" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" width="16" height="16" focusable="false">
+                            <path
+                                d="m30.6 28.1-8.3-8.3c1.5-2 2.4-4.4 2.4-7.2C24.7 6 19.6 1 13 1S1.4 6.1 1.4 12.7 6.5 24.3 13 24.3c2.3 0 4.4-.6 6.2-1.8l8.5 8.5 2.9-2.9zM4 12.6c0-5.2 3.9-9.1 9-9.1s9 3.9 9 9.1c0 5.2-3.9 9.1-9 9.1s-9-3.9-9-9.1z">
+                            </path>
+                        </svg>
+                    </span>
+
+                    <label class="sr-only" for="searchInput">Search for anything</label>
+                    <input class="search__input" id="searchInput" name="q" type="text" placeholder="Search for anything"
+                        role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggest">
+
+                    <button class="search__clear" type="button" data-clear-search aria-label="Clear search" hidden>
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+
+                    <button class="search__btn" type="submit">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <span class="search__btntext">Search</span>
+                    </button>
+
+                    <!-- ---- 8. Suggestions dropdown ---- -->
+                    <div class="suggest" id="searchSuggest" role="listbox" aria-label="Search suggestions" hidden></div>
+                </form>
+
+                <div class="topbar__actions">
+                    <button class="icon-btn topbar__searchbtn" type="button" data-mobile-search aria-expanded="false"
+                        aria-controls="mobileSearch" aria-label="Open search">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    </button>
+
+                    <button class="icon-btn" type="button" data-open="watchlist" aria-label="Open watchlist">
+                        <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                        <span class="pill" data-count="watchlist" hidden>0</span>
+                    </button>
+
+                    <button class="icon-btn" type="button" data-open="cart" aria-label="Open cart">
+                        <img src="img/shopping.png" alt="" width="22" height="22">
+                        <span class="pill" data-count="cart" hidden>0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ---- 27. Mobile expanded search ---- -->
+            <div class="msearch" id="mobileSearch" hidden>
+                <div class="shell msearch__inner">
+                    <form class="search search--mobile" role="search" autocomplete="off" data-mobile-form>
+                        <label class="sr-only" for="mobileSearchInput">Search for anything</label>
+                        <div class="search__catwrap">
+                            <select class="search__cat" id="mobileSearchCat" aria-label="Search category">
+                                <option value="">All Categories</option>
+                                <option value="Antiques">Antiques</option>
+                                <option value="Business &amp; Industrial">Business &amp; Industrial</option>
+                                <option value="Cameras &amp; Photo">Cameras &amp; Photo</option>
+                                <option value="Health &amp; Beauty">Health &amp; Beauty</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down search__caret" aria-hidden="true"></i>
+                        </div>
+                        <span class="search__icon" aria-hidden="true">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input class="search__input" id="mobileSearchInput" type="text" placeholder="Search for anything"
+                            role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="mobileSuggest">
+                        <button class="search__clear" type="button" data-clear-search aria-label="Clear search" hidden>
+                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        </button>
+                        <button class="search__btn" type="submit" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        </button>
+                        <div class="suggest" id="mobileSuggest" role="listbox" aria-label="Search suggestions" hidden></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ---- 9 / 40. Category navigation ---- -->
+        <nav class="catnav" aria-label="Marketplace categories">
+            <div class="shell catnav__inner">
+                <div class="dropdown dropdown--mega" data-dropdown>
+                    <button class="catnav__all" type="button" aria-expanded="false" aria-haspopup="true"
+                        data-dropdown-trigger>
+                        <i class="fa-solid fa-bars-staggered" aria-hidden="true"></i>
+                        <span>All Categories</span>
+                        <i class="fa-solid fa-chevron-down catnav__allcaret" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="dropdown__menu dropdown__menu--mega" role="menu" id="megaMenu">
+                        <div class="mega__group">
+                            <p class="mega__title">Shop</p>
+                            <ul>
+                                <li><a href="#categories" data-scroll>Luxury</a></li>
+                                <li><a href="#categories" data-scroll>Sneakers</a></li>
+                                <li><a href="#categories" data-scroll>P&amp;A</a></li>
+                                <li><a href="#categories" data-scroll>Refurbished</a></li>
+                                <li><a href="#categories" data-scroll>Trading cards</a></li>
+                                <li><a href="#categories" data-scroll>Toys</a></li>
+                                <li><a href="#categories" data-scroll>Kitchen</a></li>
+                                <li><a href="#categories" data-scroll>Smart</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega__group">
+                            <p class="mega__title">Collections</p>
+                            <ul>
+                                <li><a href="#holiday" data-scroll>Gear up for the holidays</a></li>
+                                <li><a href="#gift-hunt" data-scroll>The $50 gift Hunt</a></li>
+                                <li><a href="#trending" data-scroll>eBay Live</a></li>
+                                <li><a href="#refurb-promo" data-scroll>Reuse. Reloved. Refurbished!</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega__group">
+                            <p class="mega__title">Departments</p>
+                            <ul>
+                                <li><a href="#categories" data-scroll>Electronics</a></li>
+                                <li><a href="#categories" data-scroll>Motors</a></li>
+                                <li><a href="#categories" data-scroll>Fashion</a></li>
+                                <li><a href="#categories" data-scroll>Toys</a></li>
+                                <li><a href="#categories" data-scroll>Sporting Goods</a></li>
+                                <li><a href="#categories" data-scroll>Health &amp; Beauty</a></li>
+                                <li><a href="#categories" data-scroll>Business &amp; Industrial</a></li>
+                                <li><a href="#categories" data-scroll>Home &amp; Garden</a></li>
+                                <li><a href="#categories" data-scroll>Jewelry &amp; Watches</a></li>
+                                <li><a href="#categories" data-scroll>Refurbished</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="catnav__list" id="catnavList">
+                    <li><a href="#trending" data-scroll class="is-active">Explore <span class="tag">New</span></a></li>
+                    <li><button type="button" data-open="watchlist">Saved</button></li>
+                    <li><a href="https://www.ebay.com/b/Electronics/bn_7000259124">Electronics</a></li>
+                    <li><a href="https://www.ebay.com/b/Auto-Parts-and-Vehicles/6000/bn_1865334">Motors</a></li>
+                    <li><a href="#categories" data-scroll>Fashion</a></li>
+                    <li><a href="https://www.ebay.com/b/Toys-Hobbies/220/bn_1865497">Toys</a></li>
+                    <li><a href="https://www.ebay.com/b/Sporting-Goods/888/bn_1865031">Sporting Goods</a></li>
+                    <li><a href="#categories" data-scroll>Health &amp; Beauty</a></li>
+                    <li><a href="https://www.ebay.com/b/Business-Industrial/12576/bn_1853744">Business &amp; Industrial</a></li>
+                    <li><a href="https://www.ebay.com/b/Home-Garden/11700/bn_1853126">Home &amp; Garden</a></li>
+                    <li><a href="https://www.ebay.com/b/Jewelry-Watches/281/bn_1865273">Jewelry &amp; Watches</a></li>
+                    <li><a href="#refurb-promo" data-scroll>Refurbished</a></li>
+                </ul>
+
+                <div class="dropdown dropdown--more" data-dropdown>
+                    <button class="catnav__more" type="button" aria-expanded="false" data-dropdown-trigger>
+                        More <i class="fa-solid fa-chevron-down dropdown__caret" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown__menu" role="menu">
+                        <li role="none"><a role="menuitem" href="#categories" data-scroll>Pre-loved Luxury</a></li>
+                        <li role="none"><a role="menuitem" href="#categories" data-scroll>Smart</a></li>
+                        <li role="none"><a role="menuitem" href="#categories" data-scroll>Kitchen</a></li>
+                        <li role="none"><a role="menuitem" href="#holiday" data-scroll>Holiday decor</a></li>
+                        <li role="none"><a role="menuitem" href="#gift-hunt" data-scroll>The $50 gift Hunt</a></li>
+                        <li role="none"><a role="menuitem" href="#trending" data-scroll>eBay Live</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+         26. MOBILE NAVIGATION DRAWER
+         ============================================================ -->
+    <div class="mnav" id="mobileNav" hidden>
+        <nav class="mnav__panel" aria-label="Mobile menu">
+            <div class="mnav__head">
+                <img class="mnav__logo" src="img/ebay_logo.png" alt="eBay" width="104" height="42">
+                <button class="icon-btn" type="button" data-menu-close aria-label="Close menu">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="mnav__body">
+                <p class="mnav__label">Shop by category</p>
+                <ul class="mnav__list">
+                    <li><a href="#categories" data-scroll>Explore Popular Categories</a></li>
+                    <li><a href="#categories" data-scroll>Luxury</a></li>
+                    <li><a href="#categories" data-scroll>Sneakers</a></li>
+                    <li><a href="#categories" data-scroll>P&amp;A</a></li>
+                    <li><a href="#categories" data-scroll>Refurbished</a></li>
+                    <li><a href="#categories" data-scroll>Trading cards</a></li>
+                    <li><a href="#categories" data-scroll>Toys</a></li>
+                    <li><a href="#categories" data-scroll>Kitchen</a></li>
+                    <li><a href="#categories" data-scroll>Smart</a></li>
+                </ul>
+
+                <p class="mnav__label">Collections</p>
+                <ul class="mnav__list">
+                    <li><a href="#holiday" data-scroll>Gear up for the holidays</a></li>
+                    <li><a href="#gift-hunt" data-scroll>The $50 gift Hunt</a></li>
+                    <li><a href="#trending" data-scroll>eBay Live</a></li>
+                    <li><a href="#refurb-promo" data-scroll>Reuse. Reloved. Refurbished!</a></li>
+                </ul>
+
+                <p class="mnav__label">Departments</p>
+                <ul class="mnav__list">
+                    <li><a href="#categories" data-scroll>Electronics</a></li>
+                    <li><a href="#categories" data-scroll>Motors</a></li>
+                    <li><a href="#categories" data-scroll>Fashion</a></li>
+                    <li><a href="#categories" data-scroll>Sporting Goods</a></li>
+                    <li><a href="#categories" data-scroll>Health &amp; Beauty</a></li>
+                    <li><a href="#categories" data-scroll>Business &amp; Industrial</a></li>
+                    <li><a href="#categories" data-scroll>Home &amp; Garden</a></li>
+                    <li><a href="#categories" data-scroll>Jewelry &amp; Watches</a></li>
+                </ul>
+
+                <p class="mnav__label">Your account</p>
+                <ul class="mnav__list">
+                    <li>
+                        <a href="https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&amp;sgfl=gh&amp;ru=https%3A%2F%2Fwww.ebay.com%2F">Sign
+                            in or register</a>
+                    </li>
+                    <li><button type="button" data-demo="Sell">Sell</button></li>
+                    <li><button type="button" data-open="watchlist">Watchlist</button></li>
+                    <li><button type="button" data-open="cart">Cart</button></li>
+                    <li><a href="#footer-help" data-scroll>Help &amp; Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <main id="main">
+
+        <!-- ============================================================
+             10. HERO / TOP BANNER  — carousel built from existing 4:1 banners
+             ============================================================ -->
+        <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Featured promotions">
+            <div class="hero__track" id="heroTrack">
+
+                <article class="slide slide--blue is-active" data-theme="blue" aria-roledescription="slide"
+                    aria-label="1 of 6: Gear up for the holidays">
+                    <div class="slide__media">
+                        <img class="slide__bg" src="img/55.png" alt="" width="1771" height="443" fetchpriority="high">
+                    </div>
+                    <div class="shell slide__inner">
+                        <div class="slide__copy">
+                            <p class="slide__eyebrow">Holiday edit</p>
+                            <h2 class="slide__title">Gear up for the holidays</h2>
+                            <p class="slide__text">Trees, ornaments, wreaths, lights and more for every room.</p>
+                            <a class="btn btn--light" href="#holiday" data-scroll>Shop holiday</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide slide--green" data-theme="green" aria-roledescription="slide"
+                    aria-label="2 of 6: The $50 gift Hunt" hidden>
+                    <div class="slide__media">
+                        <img class="slide__bg" src="img/56.png" alt="" width="1776" height="437" loading="lazy">
+                    </div>
+                    <div class="shell slide__inner">
+                        <div class="slide__copy">
+                            <p class="slide__eyebrow">Under $50</p>
+                            <h2 class="slide__title">The $50 gift Hunt</h2>
+                            <p class="slide__text">Luxury, sneakers, P&amp;A, trading cards and refurbished picks.</p>
+                            <a class="btn btn--dark" href="#gift-hunt" data-scroll>Start hunting</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide slide--purple" data-theme="purple" aria-roledescription="slide"
+                    aria-label="3 of 6: Explore Popular Categories" hidden>
+                    <div class="slide__media">
+                        <img class="slide__bg" src="img/57.png" alt="" width="1776" height="439" loading="lazy">
+                    </div>
+                    <div class="shell slide__inner">
+                        <div class="slide__copy">
+                            <p class="slide__eyebrow">Browse the marketplace</p>
+                            <h2 class="slide__title">Explore Popular Categories</h2>
+                            <p class="slide__text">From collectibles to everyday essentials — find your next favourite.</p>
+                            <a class="btn btn--light" href="#categories" data-scroll>Explore categories</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide slide--photo" data-theme="dark" aria-roledescription="slide"
+                    aria-label="4 of 6: eBay Live" hidden>
+                    <div class="slide__media">
+                        <img class="slide__bg" src="img/58.png" alt="" width="1777" height="452" loading="lazy">
+                    </div>
+                    <div class="shell slide__inner">
+                        <div class="slide__copy">
+                            <p class="slide__eyebrow">Live shopping</p>
+                            <h2 class="slide__title">eBay Live</h2>
+                            <p class="slide__text">Tune in and shop curated experiences.</p>
+                            <a class="btn btn--light" href="#trending" data-scroll>Watch live</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide slide--dark" data-theme="dark" aria-roledescription="slide"
+                    aria-label="5 of 6: Find gear that fuels your passion" hidden>
+                    <div class="slide__media">
+                        <img class="slide__bg" src="img/59.png" alt="" width="1776" height="440" loading="lazy">
+                    </div>
+                    <div class="shell slide__inner">
+                        <div class="slide__copy">
+                            <p class="slide__eyebrow">eBay Refurbished</p>
+                            <h2 class="slide__title">Find gear that fuels your passion</h2>
+                            <p class="slide__text">Get eBay Refurbished goods with a one- or two-year warranty.</p>
+                            <a class="btn btn--light" href="#refurb-promo" data-scroll>Save now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="slide slide--navy" data-theme="navy" aria-roledescription="slide"
+                    aria-label="6 of 6: Score Nike at up to 60% off" hidden>
+                    <div class="slide__media">
+                        <img class="slide__bg" src="img/60.png" alt="" width="1778" height="445" loading="lazy">
+                    </div>
+                    <div class="shell slide__inner">
+                        <div class="slide__copy">
+                            <p class="slide__eyebrow">Sport</p>
+                            <h2 class="slide__title">Score Nike at up to 60% off</h2>
+                            <p class="slide__text">Sport style and comfort with big savings on athletic clothing.</p>
+                            <a class="btn btn--light" href="#nike-promo" data-scroll>Shop now</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <button class="hero__arrow hero__arrow--prev" type="button" data-hero-prev aria-label="Previous slide">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button class="hero__arrow hero__arrow--next" type="button" data-hero-next aria-label="Next slide">
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+
+            <div class="hero__dots" id="heroDots" role="tablist" aria-label="Choose slide"></div>
+        </section>
+
+        <!-- ============================================================
+             20 / 22. EXPLORE POPULAR CATEGORIES  (+ 17 filters / 18 sort)
+             ============================================================ -->
+        <section class="section section--tint" id="categories" aria-labelledby="categoriesTitle">
+            <div class="shell">
+                <div class="sechead" data-reveal>
+                    <div>
+                        <h2 class="sechead__title" id="categoriesTitle">Explore Popular Categories</h2>
+                        <p class="sechead__sub">Curated departments from across the marketplace</p>
+                    </div>
+                    <button class="seeall" type="button" data-seeall="catGrid" aria-expanded="false">
+                        <span class="seeall__text">See all</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="shell">
+                <div class="toolbar" data-reveal>
+                    <div class="chips" role="group" aria-label="Filter categories" data-filter-group>
+                        <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+                        <button class="chip" type="button" data-filter="Luxury" aria-pressed="false">Luxury</button>
+                        <button class="chip" type="button" data-filter="Sneakers" aria-pressed="false">Sneakers</button>
+                        <button class="chip" type="button" data-filter="Trading cards" aria-pressed="false">Trading
+                            cards</button>
+                        <button class="chip" type="button" data-filter="Refurbished" aria-pressed="false">Refurbished</button>
+                        <button class="chip" type="button" data-filter="Pre-loved Luxury" aria-pressed="false">Pre-loved
+                            Luxury</button>
+                        <button class="chip" type="button" data-filter="Toys" aria-pressed="false">Toys</button>
+                        <button class="chip" type="button" data-filter="Kitchen" aria-pressed="false">Kitchen</button>
+                        <button class="chip" type="button" data-filter="Smart" aria-pressed="false">Smart</button>
+                    </div>
+
+                    <div class="sortbox">
+                        <label class="sortbox__label" for="catSort">Sort</label>
+                        <div class="selectwrap">
+                            <select class="select" id="catSort" data-sort>
+                                <option value="featured">Featured</option>
+                                <option value="name">Name: A–Z</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down selectwrap__caret" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shell">
+                <div class="catgrid" id="catGrid" data-grid>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="Luxury" data-cat="Luxury">
+                        <span class="catcard__media">
+                            <img src="img/luxury.jpg" alt="Luxury" width="285" height="306" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Luxury</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="Sneakers" data-cat="Sneakers">
+                        <span class="catcard__media">
+                            <img src="img/sneakers.jpg" alt="Sneakers" width="278" height="306" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Sneakers</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="P&amp;A" data-cat="P&amp;A">
+                        <span class="catcard__media">
+                            <img src="img/P%20&amp;%20A.jpg" alt="P&amp;A" width="290" height="305" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">P&amp;A</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="Refurbished" data-cat="Refurbished">
+                        <span class="catcard__media">
+                            <img src="img/refurbished.jpg" alt="Refurbished" width="294" height="303" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Refurbished</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="Pre-loved Luxury" data-cat="Pre-loved Luxury">
+                        <span class="catcard__media">
+                            <img src="img/pre-loved.jpg" alt="Pre-loved Luxury" width="296" height="312" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Pre-loved Luxury</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="Trading cards" data-cat="Trading cards">
+                        <span class="catcard__media">
+                            <img src="img/trading%20cards.jpg" alt="Trading cards" width="268" height="317" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Trading cards</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="Toys" data-cat="Toys">
+                        <span class="catcard__media">
+                            <img src="img/toy.jpg" alt="Toys" width="599" height="614" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Toys</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="Kitchen" data-cat="Kitchen">
+                        <span class="catcard__media">
+                            <img src="img/kitchen.jpg" alt="Kitchen" width="292" height="217" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Kitchen</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <a class="catcard" href="#trending" data-scroll data-name="Smart" data-cat="Smart">
+                        <span class="catcard__media">
+                            <img src="img/smart.jpg" alt="Smart" width="234" height="217" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Smart</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                    <!-- More categories (revealed by "See all") -->
+                    <a class="catcard catcard--more" href="#trending" data-scroll data-name="Luxury" data-cat="Luxury" hidden>
+                        <span class="catcard__media">
+                            <img src="img/41.webp" alt="Luxury" width="500" height="479" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Luxury</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+                    <a class="catcard catcard--more" href="#trending" data-scroll data-name="Sneakers" data-cat="Sneakers"
+                        hidden>
+                        <span class="catcard__media">
+                            <img src="img/42.webp" alt="Sneakers" width="500" height="384" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Sneakers</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+                    <a class="catcard catcard--more" href="#trending" data-scroll data-name="P&amp;A" data-cat="P&amp;A" hidden>
+                        <span class="catcard__media">
+                            <img src="img/43.webp" alt="P&amp;A" width="500" height="500" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">P&amp;A</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+                    <a class="catcard catcard--more" href="#trending" data-scroll data-name="Refurbished" data-cat="Refurbished"
+                        hidden>
+                        <span class="catcard__media">
+                            <img src="img/44.webp" alt="Refurbished" width="500" height="500" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Refurbished</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+                    <a class="catcard catcard--more" href="#trending" data-scroll data-name="Trading cards"
+                        data-cat="Trading cards" hidden>
+                        <span class="catcard__media">
+                            <img src="img/45.webp" alt="Trading cards" width="500" height="500" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Trading cards</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+                    <a class="catcard catcard--more" href="#trending" data-scroll data-name="Pre-loved Luxury"
+                        data-cat="Pre-loved Luxury" hidden>
+                        <span class="catcard__media">
+                            <img src="img/46.webp" alt="Pre-loved Luxury" width="500" height="500" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Pre-loved Luxury</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+                    <a class="catcard catcard--more" href="#trending" data-scroll data-name="Pre-loved Luxury"
+                        data-cat="Pre-loved Luxury" hidden>
+                        <span class="catcard__media">
+                            <img src="img/47.webp" alt="Pre-loved Luxury" width="500" height="500" loading="lazy">
+                        </span>
+                        <span class="catcard__body">
+                            <span class="catcard__name">Pre-loved Luxury</span>
+                            <span class="catcard__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+
+                </div>
+
+                <p class="gridempty" data-grid-empty hidden>No categories match this filter.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             GEAR UP FOR THE HOLIDAYS  (icon chips)
+             ============================================================ -->
+        <section class="section" id="holiday" aria-labelledby="holidayTitle">
+            <div class="shell">
+                <div class="sechead" data-reveal>
+                    <div>
+                        <h2 class="sechead__title" id="holidayTitle">Gear up for the holidays</h2>
+                        <p class="sechead__sub">Everything you need to decorate, host and gift</p>
+                    </div>
+                    <a class="seeall" href="#categories" data-scroll>
+                        <span class="seeall__text">See all</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="iconrow" data-reveal>
+                    <a class="iconchip" href="#categories" data-scroll data-name="Trees" data-cat="Holiday">
+                        <span class="iconchip__ico"><img src="img/trees.webp" alt="" width="32" height="32" loading="lazy"></span>
+                        <span class="iconchip__label">Trees</span>
+                    </a>
+                    <a class="iconchip" href="#categories" data-scroll data-name="Ornaments" data-cat="Holiday">
+                        <span class="iconchip__ico"><img src="img/ornaments.webp" alt="" width="32" height="32" loading="lazy"></span>
+                        <span class="iconchip__label">Ornaments</span>
+                    </a>
+                    <a class="iconchip" href="#categories" data-scroll data-name="Wreaths" data-cat="Holiday">
+                        <span class="iconchip__ico"><img src="img/wreaths.webp" alt="" width="32" height="32" loading="lazy"></span>
+                        <span class="iconchip__label">Wreaths</span>
+                    </a>
+                    <a class="iconchip" href="#categories" data-scroll data-name="Lights" data-cat="Holiday">
+                        <span class="iconchip__ico"><img src="img/lights.webp" alt="" width="32" height="32" loading="lazy"></span>
+                        <span class="iconchip__label">Lights</span>
+                    </a>
+                    <a class="iconchip" href="#categories" data-scroll data-name="Outdoor decor" data-cat="Holiday">
+                        <span class="iconchip__ico"><img src="img/outdoor.webp" alt="" width="32" height="32" loading="lazy"></span>
+                        <span class="iconchip__label">Outdoor decor</span>
+                    </a>
+                    <a class="iconchip" href="#categories" data-scroll data-name="Tree skirts and more" data-cat="Holiday">
+                        <span class="iconchip__ico"><img src="img/skirts.webp" alt="" width="32" height="32" loading="lazy"></span>
+                        <span class="iconchip__label">Tree skirts and more</span>
+                    </a>
+                    <a class="iconchip" href="#categories" data-scroll data-name="Stockings and more" data-cat="Holiday">
+                        <span class="iconchip__ico"><img src="img/stocking.webp" alt="" width="32" height="32" loading="lazy"></span>
+                        <span class="iconchip__label">Stockings and more</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             eBay LIVE  — horizontal product carousel
+             ============================================================ -->
+        <section class="section section--tint" id="trending" aria-labelledby="liveTitle">
+            <div class="shell">
+                <div class="sechead" data-reveal>
+                    <div>
+                        <h2 class="sechead__title" id="liveTitle">eBay Live</h2>
+                        <p class="sechead__sub">Tune in and shop curated experiences</p>
+                    </div>
+                    <div class="sechead__nav">
+                        <button class="cbtn" type="button" data-rail-prev="liveRail" aria-label="Scroll eBay Live backwards"
+                            disabled>
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button class="cbtn" type="button" data-rail-next="liveRail" aria-label="Scroll eBay Live forwards">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                        <button class="seeall" type="button" data-seeall="liveRail" aria-expanded="false">
+                            <span class="seeall__text">See all</span>
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rail-wrap">
+                <div class="shell">
+                    <div class="rail" id="liveRail" tabindex="0" role="region" aria-label="eBay Live items, scrollable">
+
+                        <article class="pcard pcard--live" data-id="live-13" data-name="Friday Heat! 12 sec $1 Start Deals!"
+                            data-cat="eBay Live" data-img="img/13.webp">
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: Friday Heat! 12 sec $1 Start Deals!">
+                                    <img src="img/13.webp" alt="Friday Heat! 12 sec $1 Start Deals!" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add Friday Heat! 12 sec $1 Start Deals! to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">Friday Heat! 12 sec $1 Start Deals!</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live" data-id="live-14"
+                            data-name="$1 START POKEMON! THROWBACK THURSDAY SLABS!+..." data-cat="eBay Live" data-img="img/14.webp">
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview
+                                    aria-label="Quick view: $1 START POKEMON! THROWBACK THURSDAY SLABS!+...">
+                                    <img src="img/14.webp" alt="$1 START POKEMON! THROWBACK THURSDAY SLABS!+..." width="128" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add $1 START POKEMON! THROWBACK THURSDAY SLABS!+... to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">$1 START POKEMON! THROWBACK THURSDAY SLABS!+...</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live" data-id="live-20" data-name="Friday Morning Overture 37w/Victor &amp; Hailey"
+                            data-cat="eBay Live" data-img="img/20.webp">
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview
+                                    aria-label="Quick view: Friday Morning Overture 37w/Victor &amp; Hailey">
+                                    <img src="img/20.webp" alt="Friday Morning Overture 37w/Victor &amp; Hailey" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add Friday Morning Overture 37w/Victor &amp; Hailey to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">Friday Morning Overture 37w/Victor &amp; Hailey</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live" data-id="live-22" data-name="EarthCut Crystal on live! Welcome come join us!"
+                            data-cat="eBay Live" data-img="img/22.webp">
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview
+                                    aria-label="Quick view: EarthCut Crystal on live! Welcome come join us!">
+                                    <img src="img/22.webp" alt="EarthCut Crystal on live! Welcome come join us!" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add EarthCut Crystal on live! Welcome come join us! to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">EarthCut Crystal on live! Welcome come join us!</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live" data-id="live-23" data-name="All bags are 100% authentic!!! Big promotion!!!"
+                            data-cat="eBay Live" data-img="img/23.webp">
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview
+                                    aria-label="Quick view: All bags are 100% authentic!!! Big promotion!!!">
+                                    <img src="img/23.webp" alt="All bags are 100% authentic!!! Big promotion!!!" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add All bags are 100% authentic!!! Big promotion!!! to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">All bags are 100% authentic!!! Big promotion!!!</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live" data-id="live-25" data-name="One Piece Rips with Unk Kandi (+ &gt;MEGA DREAM)"
+                            data-cat="eBay Live" data-img="img/25.webp">
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview
+                                    aria-label="Quick view: One Piece Rips with Unk Kandi (+ &gt;MEGA DREAM)">
+                                    <img src="img/25.webp" alt="One Piece Rips with Unk Kandi (+ &gt;MEGA DREAM)" width="128" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add One Piece Rips with Unk Kandi (+ &gt;MEGA DREAM) to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">One Piece Rips with Unk Kandi (+ &gt;MEGA DREAM)</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live" data-id="live-28"
+                            data-name="Natural crystal seller. Freeshipping on all items. Auralith Crystal" data-cat="eBay Live" data-img="img/28.webp">
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview
+                                    aria-label="Quick view: Natural crystal seller. Freeshipping on all items. Auralith Crystal">
+                                    <img src="img/28.webp" alt="Natural crystal seller. Freeshipping on all items. Auralith Crystal" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add Natural crystal seller. Freeshipping on all items. Auralith Crystal to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">Natural crystal seller. Freeshipping on all items. Auralith Crystal</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-15" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/15.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/15.webp" alt="eBay Live curated drop" width="128" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-17" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/17.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/17.webp" alt="eBay Live curated drop" width="128" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-18" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/18.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/18.webp" alt="eBay Live curated drop" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-19" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/19.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/19.webp" alt="eBay Live curated drop" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-21" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/21.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/21.webp" alt="eBay Live curated drop" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-24" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/24.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/24.webp" alt="eBay Live curated drop" width="118" height="178" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-26" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/26.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/26.webp" alt="eBay Live curated drop" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-27" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/27.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/27.webp" alt="eBay Live curated drop" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pcard pcard--live pcard--more" data-id="live-29" data-name="eBay Live curated drop"
+                            data-cat="eBay Live" data-img="img/29.webp" hidden>
+                            <div class="pcard__media">
+                                <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: eBay Live curated drop">
+                                    <img src="img/29.webp" alt="eBay Live curated drop" width="127" height="192" loading="lazy">
+                                    <span class="pcard__live"><i class="fa-solid fa-circle" aria-hidden="true"></i>Live</span>
+                                </button>
+                                <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                    aria-label="Add eBay Live curated drop to watchlist">
+                                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="pcard__body">
+                                <p class="pcard__eyebrow">eBay Live</p>
+                                <h3 class="pcard__title">eBay Live curated drop</h3>
+                                <div class="pcard__actions">
+                                    <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                    <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             THE $50 GIFT HUNT  (+ filters / sort / see all)
+             ============================================================ -->
+        <section class="section" id="gift-hunt" aria-labelledby="giftTitle">
+            <div class="shell">
+                <div class="sechead" data-reveal>
+                    <div>
+                        <h2 class="sechead__title" id="giftTitle">The $50 gift Hunt</h2>
+                        <p class="sechead__sub">Great finds across every collection</p>
+                    </div>
+                    <button class="seeall" type="button" data-seeall="giftGrid" aria-expanded="false">
+                        <span class="seeall__text">See all</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="toolbar" data-reveal>
+                    <div class="chips" role="group" aria-label="Filter gift hunt" data-filter-group>
+                        <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+                        <button class="chip" type="button" data-filter="Luxury" aria-pressed="false">Luxury</button>
+                        <button class="chip" type="button" data-filter="Sneakers" aria-pressed="false">Sneakers</button>
+                        <button class="chip" type="button" data-filter="P&amp;A" aria-pressed="false">P&amp;A</button>
+                        <button class="chip" type="button" data-filter="Trading cards" aria-pressed="false">Trading
+                            cards</button>
+                        <button class="chip" type="button" data-filter="Refurbished" aria-pressed="false">Refurbished</button>
+                        <button class="chip" type="button" data-filter="Pre-loved Luxury" aria-pressed="false">Pre-loved
+                            Luxury</button>
+                    </div>
+
+                    <div class="sortbox">
+                        <label class="sortbox__label" for="giftSort">Sort</label>
+                        <div class="selectwrap">
+                            <select class="select" id="giftSort" data-sort>
+                                <option value="featured">Featured</option>
+                                <option value="name">Name: A–Z</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down selectwrap__caret" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pgrid" id="giftGrid" data-grid>
+
+                    <article class="pcard" data-id="gift-30" data-name="Luxury" data-cat="Luxury" data-img="img/30.webp">
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: Luxury">
+                                <img src="img/30.webp" alt="Luxury" width="400" height="500" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add Luxury to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">Luxury</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pcard" data-id="gift-31" data-name="Sneakers" data-cat="Sneakers" data-img="img/31.webp">
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: Sneakers">
+                                <img src="img/31.webp" alt="Sneakers" width="367" height="500" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add Sneakers to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">Sneakers</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pcard" data-id="gift-34" data-name="P&amp;A" data-cat="P&amp;A" data-img="img/34.webp">
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: P&amp;A">
+                                <img src="img/34.webp" alt="P&amp;A" width="405" height="500" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add P&amp;A to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">P&amp;A</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pcard" data-id="gift-36" data-name="Refurbished" data-cat="Refurbished" data-img="img/36.webp">
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: Refurbished">
+                                <img src="img/36.webp" alt="Refurbished" width="500" height="500" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add Refurbished to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">Refurbished</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pcard" data-id="gift-37" data-name="Trading cards" data-cat="Trading cards"
+                        data-img="img/37.webp">
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: Trading cards">
+                                <img src="img/37.webp" alt="Trading cards" width="500" height="500" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add Trading cards to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">Trading cards</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pcard" data-id="gift-38" data-name="Pre-loved Luxury" data-cat="Pre-loved Luxury"
+                        data-img="img/38.webp">
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview
+                                aria-label="Quick view: Pre-loved Luxury">
+                                <img src="img/38.webp" alt="Pre-loved Luxury" width="500" height="500" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add Pre-loved Luxury to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">Pre-loved Luxury</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pcard" data-id="gift-39" data-name="Pre-loved Luxury" data-cat="Pre-loved Luxury"
+                        data-img="img/39.webp">
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview
+                                aria-label="Quick view: Pre-loved Luxury">
+                                <img src="img/39.webp" alt="Pre-loved Luxury" width="500" height="491" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add Pre-loved Luxury to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">Pre-loved Luxury</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pcard pcard--more" data-id="gift-32" data-name="Gift Hunt pick" data-cat="Gift Hunt"
+                        data-img="img/32.webp" hidden>
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: Gift Hunt pick">
+                                <img src="img/32.webp" alt="Gift Hunt pick" width="500" height="500" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add Gift Hunt pick to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">Gift Hunt pick</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="pcard pcard--more" data-id="gift-35" data-name="Gift Hunt pick" data-cat="Gift Hunt"
+                        data-img="img/35.webp" hidden>
+                        <div class="pcard__media">
+                            <button class="pcard__imgbtn" type="button" data-quickview aria-label="Quick view: Gift Hunt pick">
+                                <img src="img/35.webp" alt="Gift Hunt pick" width="281" height="500" loading="lazy">
+                            </button>
+                            <button class="pcard__fav" type="button" data-watchlist aria-pressed="false"
+                                aria-label="Add Gift Hunt pick to watchlist">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pcard__body">
+                            <p class="pcard__eyebrow">The $50 gift Hunt</p>
+                            <h3 class="pcard__title">Gift Hunt pick</h3>
+                            <div class="pcard__actions">
+                                <button class="btn btn--primary btn--sm" type="button" data-addcart>Add to cart</button>
+                                <button class="linkbtn" type="button" data-quickview>Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="gridempty" data-grid-empty hidden>No items match this filter.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             21. PROMOTIONAL SECTIONS
+             ============================================================ -->
+        <section class="section" id="nike-promo" aria-labelledby="nikeTitle">
+            <div class="shell">
+                <article class="spot spot--green" data-reveal>
+                    <div class="spot__copy">
+                        <h2 class="spot__title" id="nikeTitle">Score Nike at up to 60% off</h2>
+                        <p class="spot__text">Sport style and comfort with big savings on athletic clothing.</p>
+                        <button class="btn btn--dark" type="button" data-open="cart">Shop now</button>
+                    </div>
+                    <div class="spot__media">
+                        <img src="img/61.webp" alt="Nike sport apparel" width="960" height="686" loading="lazy">
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section--flush" id="refurb-promo" aria-labelledby="refurbTitle">
+            <div class="shell">
+                <div class="promo2">
+                    <article class="spot spot--dark" data-reveal>
+                        <div class="spot__copy">
+                            <p class="spot__badge">
+                                <img src="img/tik.png" alt="" width="14" height="14" loading="lazy">
+                                REFURBISHED
+                            </p>
+                            <h2 class="spot__title" id="refurbTitle">Reuse. Reloved.<br>Refurbished!</h2>
+                            <p class="spot__text">Shop refurbished tech and enjoy savings across all categories.</p>
+                            <button class="btn btn--light" type="button" data-open="cart">Shop now</button>
+                        </div>
+                        <div class="spot__media">
+                            <img src="img/63.webp" alt="eBay Refurbished devices" width="960" height="686" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="spot spot--navy" data-reveal>
+                        <div class="spot__copy">
+                            <h2 class="spot__title">Discover a kaleidoscope of cards</h2>
+                            <p class="spot__text">Build your collection of trading cards and collectible card games.</p>
+                            <button class="btn btn--light" type="button" data-open="cart">Find your favorites</button>
+                        </div>
+                        <div class="spot__media">
+                            <img src="img/62.webp" alt="Trading cards and collectible card games" width="960" height="686"
+                                loading="lazy">
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="wideTitle">
+            <div class="shell">
+                <h2 class="sr-only" id="wideTitle">More ways to save</h2>
+                <div class="promo2">
+                    <article class="widecard widecard--green" data-reveal>
+                        <img class="widecard__bg" src="img/2.webp" alt="" width="1536" height="361" loading="lazy">
+                        <div class="widecard__copy">
+                            <h3 class="widecard__title">Find gear that fuels your passion</h3>
+                            <p class="widecard__text">Get eBay Refurbished goods with a one- or two-year warranty.</p>
+                            <button class="btn btn--light btn--sm" type="button" data-open="cart">Save now</button>
+                        </div>
+                    </article>
+                    <article class="widecard widecard--gold" data-reveal>
+                        <img class="widecard__bg" src="img/1.webp" alt="" width="1600" height="552" loading="lazy">
+                        <div class="widecard__copy">
+                            <h3 class="widecard__title">Discover a kaleidoscope of cards</h3>
+                            <p class="widecard__text">Build your collection of trading cards and collectible card games.</p>
+                            <button class="btn btn--dark btn--sm" type="button" data-open="cart">Find your favorites</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             28. FOOTER
+             ============================================================ -->
+        <footer class="site-footer">
+            <div class="shell">
+                <div class="footgrid">
+
+                    <nav class="footcol" id="footer-buy" aria-labelledby="fBuy">
+                        <h2 class="footcol__title" id="fBuy">Buy</h2>
+                        <ul>
+                            <li><a href="#trending" data-scroll>Registration</a></li>
+                            <li><a href="#refurb-promo" data-scroll>eBay Money Back Guarantee</a></li>
+                            <li><a href="#gift-hunt" data-scroll>Bidding &amp; buying help</a></li>
+                            <li><a href="#categories" data-scroll>Stores</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="footcol">
+                        <nav aria-labelledby="fSell">
+                            <h2 class="footcol__title" id="fSell">Sell</h2>
+                            <ul>
+                                <li><button type="button" data-demo="Start selling">Start selling</button></li>
+                                <li><button type="button" data-demo="Learn to sell">Learn to sell</button></li>
+                                <li><button type="button" data-demo="Affiliates">Affiliates</button></li>
+                            </ul>
+                        </nav>
+                        <nav class="footcol__sub" aria-labelledby="fTools">
+                            <h3 class="footcol__title" id="fTools">Tools &amp; apps</h3>
+                            <ul>
+                                <li><button type="button" data-demo="Developers">Developers</button></li>
+                                <li><button type="button" data-demo="Security center">Security center</button></li>
+                                <li><a href="#top" data-scroll>Site map</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <nav class="footcol" aria-labelledby="fSocial">
+                        <h2 class="footcol__title" id="fSocial">Stay connected</h2>
+                        <div class="socials">
+                            <a class="social" href="#footer-social" aria-label="Facebook">
+                                <img src="img/facebook.PNG" alt="" width="22" height="22" loading="lazy">
+                            </a>
+                            <a class="social" href="#footer-social" aria-label="Twitter">
+                                <img src="img/twiter.PNG" alt="" width="22" height="22" loading="lazy">
+                            </a>
+                            <a class="social" href="#footer-social" aria-label="TikTok">
+                                <img src="img/tik.png" alt="" width="22" height="22" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="region">
+                            <img class="region__flag" src="img/us.PNG" alt="" width="22" height="22" loading="lazy">
+                            <span>United States</span>
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                    </nav>
+
+                    <nav class="footcol" id="footer-about" aria-labelledby="fAbout">
+                        <h2 class="footcol__title" id="fAbout">About eBay</h2>
+                        <ul>
+                            <li><button type="button" data-demo="Company info">Company info</button></li>
+                            <li><button type="button" data-demo="News">News</button></li>
+                            <li><button type="button" data-demo="Investors">Investors</button></li>
+                            <li><button type="button" data-demo="Careers">Careers</button></li>
+                            <li><button type="button" data-demo="Government relations">Government relations</button></li>
+                            <li><button type="button" data-demo="Advertise with us">Advertise with us</button></li>
+                            <li><button type="button" data-demo="Policies">Policies</button></li>
+                            <li><button type="button" data-demo="Verified Rights Owner (VeRO) program">Verified Rights
+                                    Owner (VeRO) program</button></li>
+                        </ul>
+                    </nav>
+
+                    <div class="footcol">
+                        <nav id="footer-help" aria-labelledby="fHelp">
+                            <h2 class="footcol__title" id="fHelp">Help &amp; Contact</h2>
+                            <ul>
+                                <li><button type="button" data-demo="Seller Information Center">Seller Information
+                                        Center</button></li>
+                                <li><button type="button" data-demo="Contact us">Contact us</button></li>
+                            </ul>
+                        </nav>
+                        <nav class="footcol__sub" aria-labelledby="fComm">
+                            <h3 class="footcol__title" id="fComm">Community</h3>
+                            <ul>
+                                <li><button type="button" data-demo="Announcements">Announcements</button></li>
+                                <li><button type="button" data-demo="Discussion boards">Discussion boards</button></li>
+                                <li><button type="button" data-demo="eBay Giving Works">eBay Giving Works</button></li>
+                            </ul>
+                        </nav>
+                        <nav class="footcol__sub" id="footer-sell" aria-labelledby="fSites">
+                            <h3 class="footcol__title" id="fSites">eBay Sites</h3>
+                            <button class="region region--btn" type="button" data-demo="eBay Sites">
+                                <img class="region__flag" src="img/us.PNG" alt="" width="22" height="22" loading="lazy">
+                                <span>United States</span>
+                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="footpay">
+                <div class="shell footpay__inner">
+                    <p class="footpay__label">Ways to pay</p>
+                    <span class="footpay__logos">
+                        <img src="img/way%20to%20save.PNG" alt="Accepted payment methods" width="840" height="600"
+                            loading="lazy">
+                    </span>
+                </div>
+            </div>
+
+            <div class="footbase" id="footer-social">
+                <div class="shell footbase__inner">
+                    <p class="footbase__copy">
+                        Copyright © 1995-2025 eBay Inc. All Rights Reserved.
+                    </p>
+                    <ul class="footbase__links">
+                        <li><button type="button" data-demo="Accessibility">Accessibility</button></li>
+                        <li><button type="button" data-demo="User Agreement">User Agreement</button></li>
+                        <li><button type="button" data-demo="Privacy">Privacy</button></li>
+                        <li><button type="button" data-demo="Consumer Health Data">Consumer Health Data</button></li>
+                        <li><button type="button" data-demo="Payments">Payments</button></li>
+                        <li><button type="button" data-demo="Terms of Use">Terms of Use</button></li>
+                        <li><button type="button" data-demo="Cookies">Cookies</button></li>
+                        <li><button type="button" data-demo="CA Privacy Notice">CA Privacy Notice</button></li>
+                        <li><button type="button" data-demo="Your Privacy Choices">Your Privacy Choices</button></li>
+                        <li><button type="button" data-demo="AdChoice">AdChoice</button></li>
+                    </ul>
+                    <p class="footbase__demo">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        Front-end demo — cart, watchlist and search run entirely in your browser.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ============================================================
+         29. BACK TO TOP
+         ============================================================ -->
+    <button class="totop" id="toTop" type="button" aria-label="Back to top" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+        <span class="totop__label">Top</span>
+    </button>
+
+    <!-- ============================================================
+         15. CART DRAWER
+         ============================================================ -->
+    <div class="overlay" id="overlay" hidden></div>
+
+    <aside class="drawer drawer--cart" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle"
+        hidden>
+        <header class="drawer__head">
+            <h2 class="drawer__title" id="cartTitle">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                Your cart
+                <span class="drawer__count" data-cart-count>0</span>
+            </h2>
+            <button class="icon-btn" type="button" data-close aria-label="Close cart">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </header>
+
+        <div class="drawer__body" data-cart-items>
+            <p class="drawer__empty">Your cart is empty. Add something you love from the marketplace.</p>
+        </div>
+
+        <footer class="drawer__foot">
+            <div class="drawer__summary">
+                <span>Items in cart</span>
+                <strong data-cart-total>0</strong>
+            </div>
+            <p class="drawer__note">Demo storefront — no payment is processed.</p>
+            <div class="drawer__actions">
+                <button class="btn btn--ghost" type="button" data-clear-cart>Clear cart</button>
+                <button class="btn btn--primary" type="button" data-checkout>Checkout</button>
+            </div>
+        </footer>
+    </aside>
+
+    <!-- ============================================================
+         14. WATCHLIST PANEL
+         ============================================================ -->
+    <aside class="drawer drawer--watch" id="watchDrawer" role="dialog" aria-modal="true" aria-labelledby="watchTitle"
+        hidden>
+        <header class="drawer__head">
+            <h2 class="drawer__title" id="watchTitle">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                Your watchlist
+                <span class="drawer__count" data-watch-count>0</span>
+            </h2>
+            <button class="icon-btn" type="button" data-close aria-label="Close watchlist">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </header>
+
+        <div class="drawer__body" data-watch-items>
+            <p class="drawer__empty">Nothing saved yet. Tap the heart on any item to keep it here.</p>
+        </div>
+
+        <footer class="drawer__foot">
+            <div class="drawer__actions">
+                <button class="btn btn--ghost" type="button" data-clear-watch>Clear watchlist</button>
+                <button class="btn btn--primary" type="button" data-close>Continue shopping</button>
+            </div>
+        </footer>
+    </aside>
+
+    <!-- ============================================================
+         13. QUICK VIEW MODAL
+         ============================================================ -->
+    <div class="modal" id="quickModal" role="dialog" aria-modal="true" aria-labelledby="qvTitle" hidden>
+        <div class="modal__panel" role="document">
+            <button class="icon-btn modal__close" type="button" data-close aria-label="Close quick view">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+            <div class="modal__grid">
+                <div class="modal__media">
+                    <img id="qvImage" alt="">
+                </div>
+
+                <div class="modal__content">
+                    <p class="modal__eyebrow" id="qvCategory"></p>
+                    <h2 class="modal__title" id="qvTitle"></h2>
+                    <p class="modal__text" id="qvText"></p>
+
+                    <ul class="modal__facts">
+                        <li><span>Collection</span><strong id="qvCollection"></strong></li>
+                        <li><span>Saved locally</span><strong>Watchlist &amp; cart stay in this browser</strong></li>
+                    </ul>
+
+                    <div class="modal__row">
+                        <div class="qty">
+                            <span class="qty__label">Quantity</span>
+                            <div class="qty__ctrl">
+                                <button class="qty__btn" type="button" data-qty="-1" aria-label="Decrease quantity">
+                                    <i class="fa-solid fa-minus" aria-hidden="true"></i>
+                                </button>
+                                <output class="qty__value" id="qvQty" aria-live="polite">1</output>
+                                <button class="qty__btn" type="button" data-qty="1" aria-label="Increase quantity">
+                                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal__actions">
+                        <button class="btn btn--primary" type="button" data-qv-add>
+                            <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                            Add to cart
+                        </button>
+                        <button class="btn btn--outline" type="button" data-qv-watch>
+                            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            Add to watchlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         25. TOAST REGION
+         ============================================================ -->
+    <div class="toasts" id="toasts" role="status" aria-live="polite" aria-atomic="false"></div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
